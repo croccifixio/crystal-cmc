@@ -1,0 +1,17 @@
+name: cmc
+version: 0.1.0
+
+authors:
+  - Croccifixio <aizenkrosis@hotmail.com>
+
+targets:
+  cmc:
+    main: src/cmc.cr
+
+dependencies:
+  terminal_table:
+    github: benoist/terminal_table.cr
+
+crystal: 0.23.1
+
+license: MIT
