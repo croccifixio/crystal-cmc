@@ -39,4 +39,4 @@ end
 
 ## Contributors
 
-- [[Croccifixio]](https://github.com/[your-github-name]) Croccifixio - creator, maintainer
+- [Croccifixio](https://github.com/[Croccifixio]) - creator, maintainer
