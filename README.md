@@ -25,7 +25,7 @@ crystal build src/cmc.cr        # create an executable file
 
 ## Configuring
 
-The list of cryptocurrencies to display is maintained in the `src/cmc/token_list.cr` file. It requires the use of IDs as determined by the CoinMarketCap API. The default list is shown below:
+The list of cryptocurrencies to display is maintained in the `src/cmc/token_list.cr` file. Each string maches the ID of a token on the CoinMarketCap API ([full list of IDs](https://api.coinmarketcap.com/v1/ticker/)). The default list of cryptocurrencies is shown below:
 
 ```crystal
 module CMC
