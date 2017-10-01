@@ -4,7 +4,12 @@ A simple CLI app that returns some data on various cryptocurrencies using the [C
 
 ## Installation
 
-Clone or download the repository, then run `crystal build src/cmc.cr` to build the package.
+Clone or download the repository and execute the following commands:
+```bash
+cd crystal-cmc
+crystal deps                    # install dependencies
+crystal build src/cmc.cr        # create an executable file
+```
 
 ## Usage
 
