@@ -34,7 +34,7 @@ module CMC
           token.percent_change_1h,
           token.percent_change_24h,
           token.percent_change_7d,
-          token.last_updated
+          minutes_since(token.last_updated) + " minutes ago"
         ])
       else
         tokens.push([
@@ -56,7 +56,7 @@ module CMC
   end
 
   def minutes_since(last_updated)
-    (Time.now.epoch - last_updated.to_i) / 60
+    ( (Time.now.epoch - last_updated.to_i) / 60 ).to_s
   end
 end
 
@@ -65,7 +65,6 @@ class API
 end
 
 API.call
-
 
   # id": "bitcoin",
   # "name": "Bitcoin",
