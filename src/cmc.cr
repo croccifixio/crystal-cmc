@@ -20,23 +20,24 @@ module CMC
     token_list.each do |token|
       response = HTTP::Client.get("https://api.coinmarketcap.com/v1/ticker/#{token}/")
       token = ( Array(Token).from_json(response.body).first )
+
       if fullInfo
         tokens.push([
-          token.name,
-          token.symbol,
-          token.price_usd,
-          token.percent_change_1h,
-          token.percent_change_24h,
-          token.percent_change_7d,
-          minutes_since(token.last_updated) + " minutes ago"
+          validate(token.name),
+          validate(token.symbol),
+          validate(token.price_usd),
+          validate(token.percent_change_1h),
+          validate(token.percent_change_24h),
+          validate(token.percent_change_7d),          
+          minutes_since( validate(token.last_updated) )
         ])
       else
         tokens.push([
-          token.symbol,
-          token.price_usd,
-          token.percent_change_1h,
-          token.percent_change_24h,
-          token.percent_change_7d
+          validate(token.symbol),
+          validate(token.price_usd),
+          validate(token.percent_change_1h),
+          validate(token.percent_change_24h),
+          validate(token.percent_change_7d)
         ])
       end
     end
@@ -44,8 +45,16 @@ module CMC
     print_table(headings, tokens)
   end
 
-  def minutes_since(last_updated)
-    ( (Time.now.epoch - last_updated.to_i) / 60 ).to_s
+  def minutes_since(last_updated : String)
+    if last_updated == "N/A"
+      last_updated
+    else
+      ( (Time.now.epoch - last_updated.to_i) / 60 ).to_s  + " minutes ago"
+    end
+  end
+
+  def validate(value : String | Nil)
+    value.nil? ? "N/A" : value.to_s
   end
 end
 
