@@ -49,7 +49,7 @@ end
 
 ## License
 
-[Free Public License](https://opensource.org/licenses/FPL-1.0.0)
+[Unlicense](http://unlicense.org/)
 
 ## Contributors
 
