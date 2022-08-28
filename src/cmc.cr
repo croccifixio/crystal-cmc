@@ -51,11 +51,11 @@ module CMC
   def minutes_since(last_updated : String)
     last_updated_date = Time.parse_utc(last_updated, "%FT%H:%M:%S.%LZ")
     mins = ((Time.utc.to_unix - last_updated_date.to_unix) / 60).to_i.to_s
-    "#{mins} minute #{if mins == "1"
-                        ""
-                      else
-                        "s"
-                      end} ago"
+    "#{mins} minute#{if mins == "1"
+                       ""
+                     else
+                       "s"
+                     end} ago"
   end
 end
 
