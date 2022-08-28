@@ -2,7 +2,7 @@ name: cmc
 version: 0.1.0
 
 authors:
-  - Croccifixio <aizenkrosis@hotmail.com>
+  - croccifixio <git@croccifix.io>
 
 targets:
   cmc:
