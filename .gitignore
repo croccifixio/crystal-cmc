@@ -1,5 +1,4 @@
-/doc/
-/lib/
-/bin/
-/.shards/
-cmc
+/.env
+/*.dwarf
+/cmc
+/lib

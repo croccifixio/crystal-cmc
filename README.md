@@ -2,13 +2,22 @@
 
 A simple CLI app that returns some data on various cryptocurrencies using the [CoinMarketCap API](https://coinmarketcap.com/api/).
 
-## Installation
+## Setup
 
-Clone or download the repository and execute the following commands:
+### Set CoinMarketCap API Key
+Create an `.env` file in the root of the project and fill in your API key.
+```
+CMC_PRO_API_KEY=<your_api_key>
+```
+
+### Install Dependencies
 ```bash
-cd crystal-cmc
-crystal deps                    # install dependencies
-crystal build src/cmc.cr        # create an executable file
+shards
+```
+
+# Create an Executable File
+```bash
+crystal build src/cmc.cr
 ```
 
 ## Usage

@@ -9,9 +9,11 @@ targets:
     main: src/cmc.cr
 
 dependencies:
+  dotenv:
+    github: gdotdesign/cr-dotenv
   terminal_table:
     github: benoist/terminal_table.cr
 
-crystal: 0.23.1
+crystal: 1.5.0
 
 license: MIT
