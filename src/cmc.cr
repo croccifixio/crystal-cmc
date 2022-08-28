@@ -19,9 +19,11 @@ module CMC
     headings = fullInfo ? ["Name", "Symbol", "Price", "Last 1h", "Last 24h", "Last 7d", "Last updated"] : ["Symbol", "Price", "Last 1h", "Last 24h", "Last 7d"]
 
     headers = HTTP::Headers{"X-CMC_PRO_API_KEY" => ENV["CMC_PRO_API_KEY"]}
-    response = HTTP::Client.get("https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?slug=#{token_list.join ","}", headers)
+    response = HTTP::Client.get("https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?symbol=#{ENV["TOKENS"]}", headers)
 
-    TokensResponse.from_json(response.body).data.each do |_, token|
+    puts response.body
+    TokensResponse.from_json(response.body).data.each do |_, tokenArray|
+      token = tokenArray.first
       if fullInfo
         tokens.push([
           token.name,

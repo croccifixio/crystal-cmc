@@ -19,6 +19,6 @@ module CMC
 
   class TokensResponse
     include JSON::Serializable
-    property data : Hash(String, Token)
+    property data : Hash(String, Array(Token))
   end
 end

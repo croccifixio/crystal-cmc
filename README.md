@@ -4,12 +4,6 @@ A simple CLI app that returns some data on various cryptocurrencies using the [C
 
 ## Setup
 
-### Set CoinMarketCap API Key
-Create an `.env` file in the root of the project and fill in your API key.
-```
-CMC_PRO_API_KEY=<your_api_key>
-```
-
 ### Install Dependencies
 ```bash
 shards
@@ -19,6 +13,17 @@ shards
 ```bash
 crystal build src/cmc.cr
 ```
+
+### Configure Environment Variables
+Copy the `.env.example` file
+
+```bash
+cp .env.example .env
+```
+
+In the `.env` file:
+- Set `X-CMC_PRO_API_KEY` to your CoinMarketCap API key.
+- Set `TOKENS` to the cryptocurrency symbol (as a comma-separated list) whose data should be fetched and displayed. The default value is `BTC,ETH`.
 
 ## Usage
 
@@ -30,21 +35,6 @@ crystal build src/cmc.cr
 ### Run with additional info
 ```bash
 ./cmc -f        # same as `./cmc --full`
-```
-
-## Configuring
-
-The list of cryptocurrencies to display is maintained in the `src/cmc/token_list.cr` file. Each string maches the ID of a token on the CoinMarketCap API ([full list of IDs](https://api.coinmarketcap.com/v1/ticker/)). The default list of cryptocurrencies is shown below:
-
-```crystal
-module CMC
-  def token_list
-    [
-      "bitcoin",
-      "ethereum"
-    ]
-  end
-end
 ```
 
 ## License
